@@ -10,4 +10,10 @@ class Posts extends Model
     use HasFactory;
     protected $table = 'posts';
     protected $guarded = ['id'];
+
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

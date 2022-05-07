@@ -39,7 +39,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -56,6 +56,25 @@ return [
             'throw' => false,
         ],
 
+        'thumbnail' => [
+            'driver' => 'local',
+            'root' =>  storage_path('app/public') . '/' . env('MAIN_UPLOADED_PATH'),
+            'url' => env('APP_URL') . 'thumbnail/',
+            'visibility' => 'public',
+            'throw' => false,
+            'permissions' => [
+                'file' => [
+                    'public' => 0777,
+                    'private' => 0777
+                ],
+
+                'dir' => [
+                    'public' => 0777,
+                    'private' => 077
+                ]
+            ]
+        ]
+
     ],
 
     /*
@@ -71,6 +90,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('thumbnail') => storage_path('app/thumbnail')
     ],
 
 ];

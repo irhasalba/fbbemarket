@@ -13,7 +13,7 @@ class StorePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,13 +23,24 @@ class StorePostRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'required|mimetypes:image/jpg,image:png,image:jpeg',
-            'meta_tag' => 'required'
 
-        ];
+        if ($this->method() == "PUT") {
+
+            return [
+                'title' => 'required',
+                'description' => 'required',
+                'image' => 'mimes:jpg,jpeg,png',
+                'meta_tag' => 'required'
+
+            ];
+        } else {
+            return [
+                'title' => 'required',
+                'description' => 'required',
+                'image' => 'required|mimes:jpg,jpeg,png',
+                'meta_tag' => 'required'
+            ];
+        }
     }
 
     /** 
@@ -42,7 +53,7 @@ class StorePostRequest extends FormRequest
             'title.required' => 'Judul wajib diisi',
             'description.required' => 'deskripsi wajib diisi',
             'image.required' => 'gambar tidak boleh kosong',
-            'image.mimetypes' => 'gambar tidak valid'
+            'image.mimes' => 'gambar tidak valid'
         ];
     }
 }

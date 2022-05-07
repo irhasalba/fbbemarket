@@ -13,6 +13,7 @@
             <link rel="stylesheet" href="{{asset('backend/assets/css/app.css')}}">
             <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.svg')}}" type="image/x-icon">
             <script src="https://cdn.tiny.cloud/1/h3xuqh8wuu8gzb7hj9shw9cbft9d1m0ioqsbqvtc31ndxe7r/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         </head>
         <body>
 </div>
